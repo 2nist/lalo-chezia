@@ -2,6 +2,12 @@
 
 This SOP is designed for fast creative sessions with reliable recall.
 
+## Source Of Truth
+
+1. Pre-arrangement freeze: `scripts/generators/make_rpp.py` may be used to regenerate baseline `.rpp` files.
+2. Post-arrangement freeze: REAPER-saved `.rpp` files are the source of truth.
+3. Commit `.rpp` and intentional `.mid` updates to git; keep large audio in Google Drive.
+
 ## Session Cadence
 
 1. Start session:

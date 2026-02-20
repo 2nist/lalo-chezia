@@ -66,6 +66,6 @@ Operational references:
 ```bash
 git clone https://github.com/2nist/lalo-chezia.git
 cd lalo-chezia
-python scripts/generators/make_rpp.py                    # regenerate all .rpp files
+python scripts/generators/make_rpp.py                    # optional: regenerate only when arrangement spec changes
 python scripts/generators/validate_catalog.py            # verify required .rpp/.mid inventory
 ```

@@ -18,11 +18,13 @@
 ## Session Rules
 
 1. Keep `.rpp` and `.mid` in git; keep renders out of git.
-2. Use consistent song numbering prefixes (`01_...14_...`) everywhere.
-3. Record one change per commit with clear scope in the message.
-4. Run `python scripts/generators/validate_catalog.py` before merging.
-5. Follow `docs/SOP.md` for daily working cadence.
-6. Track Drive audio artifacts in `docs/drive/INDEX.csv`.
+2. After arrangement freeze, treat REAPER-saved `.rpp` as source of truth.
+3. Use `make_rpp.py` only when arrangement-spec regeneration is needed.
+4. Use consistent song numbering prefixes (`01_...14_...`) everywhere.
+5. Record one change per commit with clear scope in the message.
+6. Run `python scripts/generators/validate_catalog.py` before merging.
+7. Follow `docs/SOP.md` for daily working cadence.
+8. Track Drive audio artifacts in `docs/drive/INDEX.csv`.
 
 ## Operating Docs
 
