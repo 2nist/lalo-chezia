@@ -1,104 +1,75 @@
 # REAPER Session Standard
 
-Standard template for song sessions after arrangement freeze.
+This document defines the implemented v01 baseline template.
 
-## Track Architecture
+Canonical file:
 
-Recommended top-level order:
+- `reaper/templates/lalo_standard_v01.rpp`
 
-1. `00_REF` (folder): reference imports and rough bounces.
-2. `10_DRUMS` (folder)
-3. `20_BASS` (folder)
-4. `30_HARMONY` (folder: guitars/keys/synths)
-5. `40_LEADS` (folder: lead instruments)
-6. `50_VOX` (folder: lead + doubles + BGV)
-7. `60_FX_PRINTS` (folder: risers, impacts, transitions)
-8. `70_EDIT_BUILDER` (folder: temporary edit material)
-9. `80_BUSES` (folder: subgroup buses)
-10. `90_MIX_PRINT` (track for print routing checks)
+Pilot files:
 
-## Bus Layout
+- `reaper/01_Static_Bloom.v01_template.rpp`
+- `reaper/01_Static_Bloom.rpp`
 
-Minimum buses:
+## Build + QC
 
-1. `BUS_DRUM`
-2. `BUS_BASS`
-3. `BUS_MUSIC`
-4. `BUS_VOX`
-5. `BUS_FX`
-6. `BUS_PARALLEL`
-7. `BUS_PREMASTER`
+1. Build/apply v01 for Static Bloom:
+   - `python scripts/generators/build_v01_static_bloom_template.py`
+2. Run v01 quality checks:
+   - `python scripts/generators/qc_v01_template.py`
 
-Routing rule:
+## Top-Level Folder Order
 
-1. All instrument/audio tracks feed subgroup buses.
-2. Subgroup buses feed `BUS_PREMASTER`.
-3. `BUS_PREMASTER` feeds master.
+1. `00_REF`
+2. `10_DRUMS`
+3. `20_BASS`
+4. `30_HARMONY`
+5. `40_LEADS`
+6. `50_VOX`
+7. `60_FX_PRINTS`
+8. `70_EDIT_BUILDER`
+9. `80_BUSES`
+10. `90_MIX_PRINT`
 
-## Baseline FX Order (By Category)
+## Core Tracks Per Folder
 
-Track-level default order:
+1. `00_REF`: `ref_mix_a`, `ref_mix_b`
+2. `10_DRUMS`: `drm_kick`, `drm_snare`, `drm_hats`, `drm_toms`, `drm_oh`, `drm_room`, `drm_perc`
+3. `20_BASS`: `bas_di`, `bas_amp`, `bas_synth`
+4. `30_HARMONY`: `gtr_rhythm_l`, `gtr_rhythm_r`, `keys_main`, `syn_pad`, `syn_arp`
+5. `40_LEADS`: `gtr_lead`, `syn_lead`, `inst_lead_alt`
+6. `50_VOX`: `vox_lead_main`, `vox_double`, `vox_bgv_l`, `vox_bgv_r`, `vox_adlib`
+7. `60_FX_PRINTS`: `fx_riser`, `fx_downer`, `fx_impact`, `fx_transitions`
+8. `70_EDIT_BUILDER`: `edit_midi_builder`, `edit_audio_builder`, `arr_chords_scaffold`, `arr_drums_scaffold`
+9. `80_BUSES`: `BUS_DRUM`, `BUS_BASS`, `BUS_MUSIC`, `BUS_VOX`, `BUS_FX`, `BUS_PARALLEL`, `BUS_PREMASTER`
+10. `90_MIX_PRINT`: `mix_print_check`
 
-1. Corrective EQ
-2. Dynamics control
-3. Tone/saturation
-4. Creative shaping
-5. Utility (gain/stereo/phase)
+## Routing Contract (Implemented)
 
-Bus-level default order:
+The v01 template uses explicit `AUXRECV` routing in the `.rpp`:
 
-1. Glue compression (if needed)
-2. Broad EQ tilt
-3. Saturation (light)
-4. Metering
+1. `drm_* + arr_drums_scaffold -> BUS_DRUM`
+2. `bas_* -> BUS_BASS`
+3. `gtr_*, keys_*, syn_*, inst_lead_alt + arr_chords_scaffold -> BUS_MUSIC`
+4. `vox_* -> BUS_VOX`
+5. `fx_* -> BUS_FX`
+6. `BUS_DRUM/BASS/MUSIC/VOX/FX/PARALLEL -> BUS_PREMASTER`
+7. `BUS_PREMASTER -> Master`
 
-Master chain (working, non-final):
+## Marker + MIDI Compatibility
 
-1. Metering
-2. Light bus compression (optional)
-3. Broad tonal EQ (optional)
-4. Limiter for safety only (not final mastering target)
+1. Marker/region map is preserved from generated scaffold.
+2. `arr_chords_scaffold` and `arr_drums_scaffold` are preserved (muted/parked) inside `70_EDIT_BUILDER`.
+3. Scaffold tracks are available for regeneration delta porting.
 
-## Track Naming Standard
+## Baseline FX Slots (Stock-Only Placeholder)
 
-`<group>_<role>_<detail>`
+v01 uses stock-compatible empty `<FXCHAIN>` placeholders on source tracks and buses.
 
-Examples:
+Intended slot order for loading stock plugins:
 
-1. `drm_kick_in`
-2. `drm_snare_top`
-3. `vox_lead_main`
-4. `gtr_rhythm_l`
-5. `syn_pad_main`
+1. Source tracks: EQ -> Compression -> Saturation/Color -> Utility
+2. Buses: Glue Compression -> Tone EQ -> Metering
+3. Premaster: Metering -> Light Bus Compression -> Safety Limiter
 
-## Color + Folder Convention
-
-1. Drums: red family.
-2. Bass: orange family.
-3. Harmony/music: blue/teal family.
-4. Vocals: green family.
-5. FX/transitions: purple/grey family.
-6. Buses/master prep: neutral/dark family.
-
-## Script Hooks (Future/Optional)
-
-Place album-specific scripts in `scripts/reaper/`:
-
-1. `create_track_template.lua`:
-   - creates standard folder/track structure.
-2. `apply_color_map.lua`:
-   - applies group color conventions.
-3. `export_stems.lua`:
-   - renders stage-specific stems to configured folder.
-4. `session_qc.lua`:
-   - validates naming/routing/bus presence.
-
-## Initial Setup Checklist (Per Song)
-
-1. Confirm BPM/time signature/sections.
-2. Apply standard track architecture.
-3. Confirm bus routing to `BUS_PREMASTER`.
-4. Save baseline as:
-   - `reaper/NN_song_slug.v01_template.rpp`
-5. Continue production in:
-   - `reaper/NN_song_slug.rpp`
+No third-party plugins are required in v01.

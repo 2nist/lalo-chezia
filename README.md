@@ -41,7 +41,7 @@ lalo-chezia/
 ├── reaper/              # .rpp project files per song
 ├── samples/             # small original samples only
 └── scripts/
-    ├── generators/      # Python scripts (make_rpp.py, validate_catalog.py)
+    ├── generators/      # Python scripts (make_rpp.py, template builders, QC)
     └── reaper/          # album-specific JSFX / Lua only
 ```
 
@@ -70,4 +70,6 @@ git clone https://github.com/2nist/lalo-chezia.git
 cd lalo-chezia
 python scripts/generators/make_rpp.py                    # optional: regenerate only when arrangement spec changes
 python scripts/generators/validate_catalog.py            # verify required .rpp/.mid inventory
+python scripts/generators/build_v01_static_bloom_template.py  # build/apply v01 template to song 01
+python scripts/generators/qc_v01_template.py             # validate v01 template naming/routing/markers
 ```

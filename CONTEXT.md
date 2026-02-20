@@ -35,6 +35,8 @@ Operational docs:
 |--------|-------------|-----|
 | `scripts/generators/make_rpp.py` | Generates all 14 `.rpp` files → `reaper/` | `python scripts/generators/make_rpp.py` |
 | `scripts/generators/validate_catalog.py` | Verifies expected `.rpp` + `.mid` inventory exists | `python scripts/generators/validate_catalog.py` |
+| `scripts/generators/build_v01_static_bloom_template.py` | Builds/applies standardized v01 template for `01_Static_Bloom` | `python scripts/generators/build_v01_static_bloom_template.py` |
+| `scripts/generators/qc_v01_template.py` | Validates v01 template naming/routing/marker contract | `python scripts/generators/qc_v01_template.py` |
 
 ---
 
