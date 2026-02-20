@@ -21,3 +21,11 @@
 2. Use consistent song numbering prefixes (`01_...14_...`) everywhere.
 3. Record one change per commit with clear scope in the message.
 4. Run `python scripts/generators/validate_catalog.py` before merging.
+5. Follow `docs/SOP.md` for daily working cadence.
+6. Track Drive audio artifacts in `docs/drive/INDEX.csv`.
+
+## Operating Docs
+
+1. `docs/SOP.md`: daily creative workflow and commit rhythm.
+2. `docs/DRIVE_AUDIO_STRATEGY.md`: Drive foldering, naming, and recall strategy.
+3. `docs/session_logs/`: chronological production notes.

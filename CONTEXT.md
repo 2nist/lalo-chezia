@@ -9,6 +9,12 @@
 Album production repo. Working title: **Lunar Static**. 14-song LP.  
 Repo: https://github.com/2nist/lalo-chezia.git
 
+Operational docs:
+
+- `docs/SOP.md`
+- `docs/DRIVE_AUDIO_STRATEGY.md`
+- `docs/PROJECT_STRATEGY.md`
+
 ---
 
 ## Source of Truth
@@ -73,3 +79,5 @@ Chord voicings live in the `V` dict in `make_rpp.py` — add new ones there.
 | Album-specific JSFX | `scripts/reaper/` |
 | Rendered audio | Google Drive (not git) |
 | Stems / masters | Google Drive + Git LFS (TBD) |
+| Drive file index | `docs/drive/INDEX.csv` |
+| Session notes | `docs/session_logs/` |

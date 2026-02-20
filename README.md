@@ -53,6 +53,12 @@ lalo-chezia/
 
 Rendered audio is **not tracked in git** — lives in Google Drive mirroring this structure.
 
+Operational references:
+
+- `docs/SOP.md`
+- `docs/DRIVE_AUDIO_STRATEGY.md`
+- `docs/PROJECT_STRATEGY.md`
+
 ---
 
 ## Quick Start
