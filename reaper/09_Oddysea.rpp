@@ -1,0 +1,1333 @@
+<REAPER_PROJECT 0.1 "6.82/OSX64" 1708000000
+  RIPPLE 0
+  GROUPOVERRIDE 0 0 0
+  AUTOXFADE 129
+  ENVATTACH 3
+  POOLEDENVATTACH 0
+  MIXERUIFLAGS 11 48
+  PEAKGAIN 1
+  FEEDBACK 0
+  PANLAW 1
+  PROJOFFS 0 0 0
+  MAXPROJLEN 0 165.684211
+  GRID 3199 8 1 8 1 0 0 0
+  TIMEMODE 1 5 -1 30 0 0 -1
+  VIDEO_CONFIG 0 0 256
+  PANMODE 3
+  CURSOR 0
+  ZOOM 100 0 0
+  VZOOMEX 6 0
+  USE_REC_CFG 0
+  RECMODE 1
+  SMPTESYNC 0 30 100 40 1000 300 0 0 0 0 0
+  LOOP 0
+  LOOPGRAN 0
+  RECORD_PATH "" ""
+  <RECORD_CFG
+    ZXZhdw==
+  >
+  <APPLYFX_CFG
+  >
+  RENDER_FILE ""
+  RENDER_PATTERN ""
+  RENDER_FMT 0 2 0
+  RENDER_1X 0
+  RENDER_RANGE 1 0 0 18 1000
+  RENDER_RESAMPLE 3 0 1
+  RENDER_ADDTOPROJ 0
+  RENDER_STEMS 0
+  RENDER_DITHER 0
+  TIMELOCKMODE 1
+  TEMPOENVLOCKMODE 1
+  ITEMMIX 1
+  DEFPITCHMODE 589824 0
+  TAKELANE 1
+  SAMPLERATE 48000 0 0
+  <RENDER_CFG2
+  >
+  LOCK 1
+  <METRONOME 6 2
+    VOL 0.25 0.125
+    FREQ 800 1600 1
+    BEATLEN 4
+    SAMPLES "" ""
+    PATTERN 2863311530 2863311530
+    MULT 1
+  >
+  <GLOBAL_AUTO
+  >
+  MASTER_NCH 2
+  MASTER_VOLUME 1
+  MASTER_PAN 0
+  MASTER_MUTE 0
+  MASTER_BYPASS 0
+  MASTER_FX 1
+  MASTER_SEL 0
+  <MASTER_MIXENV
+  >
+  <MASTER_STEREOOUT
+  >
+  <TEMPOENVEX
+    ACT 0 -1
+    VIS 1 0 1
+    LANEHEIGHT 0 0
+    ARM 0
+    DEFSHAPE 0 -1 -1
+    PT 0 95 0
+  >
+  <PROJBAY
+  >
+    MARKER 1 0.000000 "Section 1" 1 0 1 B {6A4792DC-54B2-4AA8-8009-4AF74CF50B56} 0
+  MARKER 2 20.210526 "Section 2" 1 0 1 B {5948BA26-1749-4FAD-9963-ED316BC458A8} 0
+  MARKER 3 50.526316 "Section 3" 1 0 1 B {0271252F-E881-43E4-A10A-5213496494A1} 0
+  MARKER 4 90.947368 "Silence" 1 0 1 B {049B3CE3-C93E-45D6-BD26-5F25F1D09C2A} 0
+  MARKER 5 101.052632 "Section 5" 1 0 1 B {5AFC7609-CEE6-489D-87D4-83A685859D74} 0
+  MARKER 6 131.368421 "Section 6" 1 0 1 B {578E0F15-3C90-44E8-B4F7-F295F9CD8F44} 0
+  MARKER 7 151.578947 "Outro" 1 0 1 B {CEF7E58C-3AE8-462C-820F-8D961E385AEA} 0
+  <TRACK {D1450D23-490B-4F6B-B40F-DA1589A7914F}
+    NAME "Chords"
+    PEAKCOL 33522258
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 0.6 -1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    FREEMODE 0
+    SEL 0
+    REC 0 0 1 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {24C74376-E320-400F-9135-C64ECA3F80FB}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <ITEM
+      POSITION 0.000000
+      SNAPOFFS 0
+      LENGTH 20.210526
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {FD5A2FB9-1C98-4140-9334-6A7CBA56ABB4}
+      IID 1
+      NAME "Section 1"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {0FB2CF95-DBD6-4F5B-AF63-23B1A08A71FF}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {78B66665-0E41-441A-9A1B-71C7F8D5FB36}
+        LAST_REC_LAUNCHQUANT 0
+      E 0 90 30 3c
+      E 0 90 33 3c
+      E 0 90 37 3c
+      E 3792 80 30 00
+      E 0 80 33 00
+      E 0 80 37 00
+      E 48 90 37 3c
+      E 0 90 3a 3c
+      E 0 90 3e 3c
+      E 3792 80 37 00
+      E 0 80 3a 00
+      E 0 80 3e 00
+      E 48 90 30 3c
+      E 0 90 33 3c
+      E 0 90 37 3c
+      E 3792 80 30 00
+      E 0 80 33 00
+      E 0 80 37 00
+      E 48 90 37 3c
+      E 0 90 3a 3c
+      E 0 90 3e 3c
+      E 3792 80 37 00
+      E 0 80 3a 00
+      E 0 80 3e 00
+      E 48 90 30 3c
+      E 0 90 33 3c
+      E 0 90 37 3c
+      E 3792 80 30 00
+      E 0 80 33 00
+      E 0 80 37 00
+      E 48 90 37 3c
+      E 0 90 3a 3c
+      E 0 90 3e 3c
+      E 3792 80 37 00
+      E 0 80 3a 00
+      E 0 80 3e 00
+      E 48 90 30 3c
+      E 0 90 33 3c
+      E 0 90 37 3c
+      E 3792 80 30 00
+      E 0 80 33 00
+      E 0 80 37 00
+      E 48 90 37 3c
+      E 0 90 3a 3c
+      E 0 90 3e 3c
+      E 3792 80 37 00
+      E 0 80 3a 00
+      E 0 80 3e 00
+      E 48 b0 7b 00
+        CCEVT -1 0 0
+      >
+    >
+    <ITEM
+      POSITION 20.210526
+      SNAPOFFS 0
+      LENGTH 30.315789
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {AA9F14D6-1717-4DDF-879B-7CB88D2994F3}
+      IID 1
+      NAME "Section 2"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {8CEC8595-6BED-4CF6-8320-20A5EA57DFCA}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {2CA4E453-A6D9-468D-91B4-58C8D6339402}
+        LAST_REC_LAUNCHQUANT 0
+      E 0 90 39 4b
+      E 0 90 3c 4b
+      E 0 90 40 4b
+      E 3792 80 39 00
+      E 0 80 3c 00
+      E 0 80 40 00
+      E 48 90 32 4b
+      E 0 90 35 4b
+      E 0 90 39 4b
+      E 3792 80 32 00
+      E 0 80 35 00
+      E 0 80 39 00
+      E 48 90 37 4b
+      E 0 90 3b 4b
+      E 0 90 3e 4b
+      E 3792 80 37 00
+      E 0 80 3b 00
+      E 0 80 3e 00
+      E 48 90 39 4b
+      E 0 90 3c 4b
+      E 0 90 40 4b
+      E 3792 80 39 00
+      E 0 80 3c 00
+      E 0 80 40 00
+      E 48 90 32 4b
+      E 0 90 35 4b
+      E 0 90 39 4b
+      E 3792 80 32 00
+      E 0 80 35 00
+      E 0 80 39 00
+      E 48 90 37 4b
+      E 0 90 3b 4b
+      E 0 90 3e 4b
+      E 3792 80 37 00
+      E 0 80 3b 00
+      E 0 80 3e 00
+      E 48 90 39 4b
+      E 0 90 3c 4b
+      E 0 90 40 4b
+      E 3792 80 39 00
+      E 0 80 3c 00
+      E 0 80 40 00
+      E 48 90 32 4b
+      E 0 90 35 4b
+      E 0 90 39 4b
+      E 3792 80 32 00
+      E 0 80 35 00
+      E 0 80 39 00
+      E 48 90 37 4b
+      E 0 90 3b 4b
+      E 0 90 3e 4b
+      E 3792 80 37 00
+      E 0 80 3b 00
+      E 0 80 3e 00
+      E 48 90 39 4b
+      E 0 90 3c 4b
+      E 0 90 40 4b
+      E 3792 80 39 00
+      E 0 80 3c 00
+      E 0 80 40 00
+      E 48 90 32 4b
+      E 0 90 35 4b
+      E 0 90 39 4b
+      E 3792 80 32 00
+      E 0 80 35 00
+      E 0 80 39 00
+      E 48 90 37 4b
+      E 0 90 3b 4b
+      E 0 90 3e 4b
+      E 3792 80 37 00
+      E 0 80 3b 00
+      E 0 80 3e 00
+      E 48 b0 7b 00
+        CCEVT -1 0 0
+      >
+    >
+    <ITEM
+      POSITION 50.526316
+      SNAPOFFS 0
+      LENGTH 40.421053
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {5C0B01BF-4E3A-41AE-BF65-A12E97B212DC}
+      IID 1
+      NAME "Section 3"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {E6B05ECB-08AC-4350-9648-3DB833228EEC}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {9644FF1F-7750-4D5F-80F6-70143545CA44}
+        LAST_REC_LAUNCHQUANT 0
+      E 0 90 31 5f
+      E 0 90 34 5f
+      E 0 90 38 5f
+      E 3792 80 31 00
+      E 0 80 34 00
+      E 0 80 38 00
+      E 48 90 38 5f
+      E 0 90 3c 5f
+      E 0 90 3f 5f
+      E 3792 80 38 00
+      E 0 80 3c 00
+      E 0 80 3f 00
+      E 48 90 39 5f
+      E 0 90 3d 5f
+      E 0 90 40 5f
+      E 3792 80 39 00
+      E 0 80 3d 00
+      E 0 80 40 00
+      E 48 90 34 5f
+      E 0 90 38 5f
+      E 0 90 3b 5f
+      E 3792 80 34 00
+      E 0 80 38 00
+      E 0 80 3b 00
+      E 48 90 31 5f
+      E 0 90 34 5f
+      E 0 90 38 5f
+      E 3792 80 31 00
+      E 0 80 34 00
+      E 0 80 38 00
+      E 48 90 38 5f
+      E 0 90 3c 5f
+      E 0 90 3f 5f
+      E 3792 80 38 00
+      E 0 80 3c 00
+      E 0 80 3f 00
+      E 48 90 39 5f
+      E 0 90 3d 5f
+      E 0 90 40 5f
+      E 3792 80 39 00
+      E 0 80 3d 00
+      E 0 80 40 00
+      E 48 90 34 5f
+      E 0 90 38 5f
+      E 0 90 3b 5f
+      E 3792 80 34 00
+      E 0 80 38 00
+      E 0 80 3b 00
+      E 48 90 31 5f
+      E 0 90 34 5f
+      E 0 90 38 5f
+      E 3792 80 31 00
+      E 0 80 34 00
+      E 0 80 38 00
+      E 48 90 38 5f
+      E 0 90 3c 5f
+      E 0 90 3f 5f
+      E 3792 80 38 00
+      E 0 80 3c 00
+      E 0 80 3f 00
+      E 48 90 39 5f
+      E 0 90 3d 5f
+      E 0 90 40 5f
+      E 3792 80 39 00
+      E 0 80 3d 00
+      E 0 80 40 00
+      E 48 90 34 5f
+      E 0 90 38 5f
+      E 0 90 3b 5f
+      E 3792 80 34 00
+      E 0 80 38 00
+      E 0 80 3b 00
+      E 48 90 31 5f
+      E 0 90 34 5f
+      E 0 90 38 5f
+      E 3792 80 31 00
+      E 0 80 34 00
+      E 0 80 38 00
+      E 48 90 38 5f
+      E 0 90 3c 5f
+      E 0 90 3f 5f
+      E 3792 80 38 00
+      E 0 80 3c 00
+      E 0 80 3f 00
+      E 48 90 39 5f
+      E 0 90 3d 5f
+      E 0 90 40 5f
+      E 3792 80 39 00
+      E 0 80 3d 00
+      E 0 80 40 00
+      E 48 90 34 5f
+      E 0 90 38 5f
+      E 0 90 3b 5f
+      E 3792 80 34 00
+      E 0 80 38 00
+      E 0 80 3b 00
+      E 48 b0 7b 00
+        CCEVT -1 0 0
+      >
+    >
+    <ITEM
+      POSITION 90.947368
+      SNAPOFFS 0
+      LENGTH 10.105263
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {E64C1666-CFCE-4964-AE31-3E5F192564A8}
+      IID 1
+      NAME "Silence"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {68CFD0FA-004F-4C75-ABBD-2B5B7534E7D4}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {F4D0FAB8-A8EA-4D1E-B074-BF383D44B665}
+        LAST_REC_LAUNCHQUANT 0
+      E 0 90 30 28
+      E 0 90 33 28
+      E 0 90 37 28
+      E 3792 80 30 00
+      E 0 80 33 00
+      E 0 80 37 00
+      E 48 90 30 28
+      E 0 90 33 28
+      E 0 90 37 28
+      E 3792 80 30 00
+      E 0 80 33 00
+      E 0 80 37 00
+      E 48 90 30 28
+      E 0 90 33 28
+      E 0 90 37 28
+      E 3792 80 30 00
+      E 0 80 33 00
+      E 0 80 37 00
+      E 48 90 30 28
+      E 0 90 33 28
+      E 0 90 37 28
+      E 3792 80 30 00
+      E 0 80 33 00
+      E 0 80 37 00
+      E 48 b0 7b 00
+        CCEVT -1 0 0
+      >
+    >
+    <ITEM
+      POSITION 101.052632
+      SNAPOFFS 0
+      LENGTH 30.315789
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {E9FE0FA3-65AF-4C15-9CE6-CD8F9F675C61}
+      IID 1
+      NAME "Section 5"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {01BCD0E4-CDAE-4FCC-9525-A5546BA04A95}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {4F259E32-F767-4D56-9069-A2B1F203F45D}
+        LAST_REC_LAUNCHQUANT 0
+      E 0 90 35 48
+      E 0 90 38 48
+      E 0 90 3c 48
+      E 3792 80 35 00
+      E 0 80 38 00
+      E 0 80 3c 00
+      E 48 90 30 48
+      E 0 90 33 48
+      E 0 90 37 48
+      E 3792 80 30 00
+      E 0 80 33 00
+      E 0 80 37 00
+      E 48 90 38 48
+      E 0 90 3c 48
+      E 0 90 3f 48
+      E 3792 80 38 00
+      E 0 80 3c 00
+      E 0 80 3f 00
+      E 48 90 33 48
+      E 0 90 37 48
+      E 0 90 3a 48
+      E 3792 80 33 00
+      E 0 80 37 00
+      E 0 80 3a 00
+      E 48 90 35 48
+      E 0 90 38 48
+      E 0 90 3c 48
+      E 3792 80 35 00
+      E 0 80 38 00
+      E 0 80 3c 00
+      E 48 90 30 48
+      E 0 90 33 48
+      E 0 90 37 48
+      E 3792 80 30 00
+      E 0 80 33 00
+      E 0 80 37 00
+      E 48 90 38 48
+      E 0 90 3c 48
+      E 0 90 3f 48
+      E 3792 80 38 00
+      E 0 80 3c 00
+      E 0 80 3f 00
+      E 48 90 33 48
+      E 0 90 37 48
+      E 0 90 3a 48
+      E 3792 80 33 00
+      E 0 80 37 00
+      E 0 80 3a 00
+      E 48 90 35 48
+      E 0 90 38 48
+      E 0 90 3c 48
+      E 3792 80 35 00
+      E 0 80 38 00
+      E 0 80 3c 00
+      E 48 90 30 48
+      E 0 90 33 48
+      E 0 90 37 48
+      E 3792 80 30 00
+      E 0 80 33 00
+      E 0 80 37 00
+      E 48 90 38 48
+      E 0 90 3c 48
+      E 0 90 3f 48
+      E 3792 80 38 00
+      E 0 80 3c 00
+      E 0 80 3f 00
+      E 48 90 33 48
+      E 0 90 37 48
+      E 0 90 3a 48
+      E 3792 80 33 00
+      E 0 80 37 00
+      E 0 80 3a 00
+      E 48 b0 7b 00
+        CCEVT -1 0 0
+      >
+    >
+    <ITEM
+      POSITION 131.368421
+      SNAPOFFS 0
+      LENGTH 20.210526
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {B2AB5E3D-68B9-4C38-9898-B08F16A2476C}
+      IID 1
+      NAME "Section 6"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {3B29B2D7-450E-41A3-A7C8-D6949370F203}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {ABEAD957-5875-4D66-8CA9-F9CF16573DBA}
+        LAST_REC_LAUNCHQUANT 0
+      E 0 90 39 58
+      E 0 90 3c 58
+      E 0 90 40 58
+      E 3792 80 39 00
+      E 0 80 3c 00
+      E 0 80 40 00
+      E 48 90 34 58
+      E 0 90 38 58
+      E 0 90 3b 58
+      E 3792 80 34 00
+      E 0 80 38 00
+      E 0 80 3b 00
+      E 48 90 35 58
+      E 0 90 39 58
+      E 0 90 3c 58
+      E 3792 80 35 00
+      E 0 80 39 00
+      E 0 80 3c 00
+      E 48 90 3c 58
+      E 0 90 40 58
+      E 0 90 43 58
+      E 3792 80 3c 00
+      E 0 80 40 00
+      E 0 80 43 00
+      E 48 90 39 58
+      E 0 90 3c 58
+      E 0 90 40 58
+      E 3792 80 39 00
+      E 0 80 3c 00
+      E 0 80 40 00
+      E 48 90 34 58
+      E 0 90 38 58
+      E 0 90 3b 58
+      E 3792 80 34 00
+      E 0 80 38 00
+      E 0 80 3b 00
+      E 48 90 35 58
+      E 0 90 39 58
+      E 0 90 3c 58
+      E 3792 80 35 00
+      E 0 80 39 00
+      E 0 80 3c 00
+      E 48 90 3c 58
+      E 0 90 40 58
+      E 0 90 43 58
+      E 3792 80 3c 00
+      E 0 80 40 00
+      E 0 80 43 00
+      E 48 b0 7b 00
+        CCEVT -1 0 0
+      >
+    >
+    <ITEM
+      POSITION 151.578947
+      SNAPOFFS 0
+      LENGTH 10.105263
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {FA120AAC-4198-40C0-B9D2-61B58781BE74}
+      IID 1
+      NAME "Outro"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {7C2B6F85-49DC-4E08-BC44-871299688704}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {9FFD1703-C3EE-4BFF-B769-B74FB911D56C}
+        LAST_REC_LAUNCHQUANT 0
+      E 0 90 39 2d
+      E 0 90 3c 2d
+      E 0 90 40 2d
+      E 3792 80 39 00
+      E 0 80 3c 00
+      E 0 80 40 00
+      E 48 90 39 2d
+      E 0 90 3c 2d
+      E 0 90 40 2d
+      E 3792 80 39 00
+      E 0 80 3c 00
+      E 0 80 40 00
+      E 48 90 39 2d
+      E 0 90 3c 2d
+      E 0 90 40 2d
+      E 3792 80 39 00
+      E 0 80 3c 00
+      E 0 80 40 00
+      E 48 90 39 2d
+      E 0 90 3c 2d
+      E 0 90 40 2d
+      E 3792 80 39 00
+      E 0 80 3c 00
+      E 0 80 40 00
+      E 48 b0 7b 00
+        CCEVT -1 0 0
+      >
+    >
+
+  >
+  <TRACK {B9F168D7-9C38-437D-BA8C-7110B82A1408}
+    NAME "Drums (Kick+Snare)"
+    PEAKCOL 22045951
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 0.6 -1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    FREEMODE 0
+    SEL 0
+    REC 0 0 1 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {4DF17C92-B0EC-463D-A67A-6BDEB526E435}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <ITEM
+      POSITION 0.000000
+      SNAPOFFS 0
+      LENGTH 20.210526
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {6EB44263-989C-42CE-9457-7000AE968366}
+      IID 1
+      NAME "Section 1"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {8F84B87F-6596-4D8D-BE81-3E4375A86F4F}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {E2BBDE69-AE52-4221-93DC-B00BB58A81A0}
+        LAST_REC_LAUNCHQUANT 0
+      E 30720 b0 7b 00
+        CCEVT -1 0 0
+      >
+    >
+    <ITEM
+      POSITION 20.210526
+      SNAPOFFS 0
+      LENGTH 30.315789
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {0A7DCD9F-60C6-435D-90AD-A94FB14027F0}
+      IID 1
+      NAME "Section 2"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {06C01517-D5A9-4B6F-B320-47F7FF9CE04C}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {F8870960-8F54-4318-9C15-17EEAFCC0075}
+        LAST_REC_LAUNCHQUANT 0
+      E 0 90 24 5a
+      E 336 80 24 00
+      E 1584 90 26 50
+      E 336 80 26 00
+      E 1584 90 24 5a
+      E 336 80 24 00
+      E 1584 90 26 50
+      E 336 80 26 00
+      E 1584 90 24 5a
+      E 336 80 24 00
+      E 1584 90 26 50
+      E 336 80 26 00
+      E 1584 90 24 5a
+      E 336 80 24 00
+      E 1584 90 26 50
+      E 336 80 26 00
+      E 1584 90 24 5a
+      E 336 80 24 00
+      E 1584 90 26 50
+      E 336 80 26 00
+      E 1584 90 24 5a
+      E 336 80 24 00
+      E 1584 90 26 50
+      E 336 80 26 00
+      E 1584 90 24 5a
+      E 336 80 24 00
+      E 1584 90 26 50
+      E 336 80 26 00
+      E 1584 90 24 5a
+      E 336 80 24 00
+      E 1584 90 26 50
+      E 336 80 26 00
+      E 1584 90 24 5a
+      E 336 80 24 00
+      E 1584 90 26 50
+      E 336 80 26 00
+      E 1584 90 24 5a
+      E 336 80 24 00
+      E 1584 90 26 50
+      E 336 80 26 00
+      E 1584 90 24 5a
+      E 336 80 24 00
+      E 1584 90 26 50
+      E 336 80 26 00
+      E 1584 90 24 5a
+      E 336 80 24 00
+      E 1584 90 26 50
+      E 336 80 26 00
+      E 1584 b0 7b 00
+        CCEVT -1 0 0
+      >
+    >
+    <ITEM
+      POSITION 50.526316
+      SNAPOFFS 0
+      LENGTH 40.421053
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {BB487FD4-291E-46D9-B6B5-166597776795}
+      IID 1
+      NAME "Section 3"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {4C3A6AAE-516D-40FD-8DCE-A23AFD3E5CE4}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {660B2376-6FA9-4A31-9813-02C57211133A}
+        LAST_REC_LAUNCHQUANT 0
+      E 0 90 24 6e
+      E 336 80 24 00
+      E 624 90 24 5f
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 624 90 24 5a
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 6e
+      E 336 80 24 00
+      E 624 90 24 5f
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 624 90 24 5a
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 6e
+      E 336 80 24 00
+      E 624 90 24 5f
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 624 90 24 5a
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 6e
+      E 336 80 24 00
+      E 624 90 24 5f
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 624 90 24 5a
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 6e
+      E 336 80 24 00
+      E 624 90 24 5f
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 624 90 24 5a
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 6e
+      E 336 80 24 00
+      E 624 90 24 5f
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 624 90 24 5a
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 6e
+      E 336 80 24 00
+      E 624 90 24 5f
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 624 90 24 5a
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 6e
+      E 336 80 24 00
+      E 624 90 24 5f
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 624 90 24 5a
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 6e
+      E 336 80 24 00
+      E 624 90 24 5f
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 624 90 24 5a
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 6e
+      E 336 80 24 00
+      E 624 90 24 5f
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 624 90 24 5a
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 6e
+      E 336 80 24 00
+      E 624 90 24 5f
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 624 90 24 5a
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 6e
+      E 336 80 24 00
+      E 624 90 24 5f
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 624 90 24 5a
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 6e
+      E 336 80 24 00
+      E 624 90 24 5f
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 624 90 24 5a
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 6e
+      E 336 80 24 00
+      E 624 90 24 5f
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 624 90 24 5a
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 6e
+      E 336 80 24 00
+      E 624 90 24 5f
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 624 90 24 5a
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 6e
+      E 336 80 24 00
+      E 624 90 24 5f
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 624 90 24 5a
+      E 0 90 26 64
+      E 336 80 24 00
+      E 0 80 26 00
+      E 624 b0 7b 00
+        CCEVT -1 0 0
+      >
+    >
+    <ITEM
+      POSITION 90.947368
+      SNAPOFFS 0
+      LENGTH 10.105263
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {8A301EFF-9182-487C-826E-F8A9BB471246}
+      IID 1
+      NAME "Silence"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {A188A98D-F47A-4AA1-8D63-67ED463D7451}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {98200B13-040D-43AA-ACA9-DFA8758ED19D}
+        LAST_REC_LAUNCHQUANT 0
+      E 15360 b0 7b 00
+        CCEVT -1 0 0
+      >
+    >
+    <ITEM
+      POSITION 101.052632
+      SNAPOFFS 0
+      LENGTH 30.315789
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {34D32892-5537-4484-9B2D-10B04C8B26F5}
+      IID 1
+      NAME "Section 5"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {0CB8BFAA-D1E5-409B-BCED-2607CA3E3802}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {35D288EC-3640-403B-8AF4-A1C59CB505E9}
+        LAST_REC_LAUNCHQUANT 0
+      E 0 90 24 64
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 5f
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 64
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 5f
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 64
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 5f
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 64
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 5f
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 64
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 5f
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 64
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 5f
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 64
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 5f
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 64
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 5f
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 64
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 5f
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 64
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 5f
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 64
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 5f
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 64
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 90 24 5f
+      E 336 80 24 00
+      E 624 90 26 5a
+      E 336 80 26 00
+      E 624 b0 7b 00
+        CCEVT -1 0 0
+      >
+    >
+    <ITEM
+      POSITION 131.368421
+      SNAPOFFS 0
+      LENGTH 20.210526
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {131D029C-B786-4112-9C62-1B4862AF88C1}
+      IID 1
+      NAME "Section 6"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {5DE0AFFF-D382-42A0-9F4A-3BB2083D07B6}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {4AB2E0E0-DEE9-4389-833B-26129ADC1CD2}
+        LAST_REC_LAUNCHQUANT 0
+      E 0 90 24 69
+      E 336 80 24 00
+      E 144 90 24 50
+      E 336 80 24 00
+      E 144 90 26 5f
+      E 336 80 26 00
+      E 624 90 24 64
+      E 336 80 24 00
+      E 144 90 24 4b
+      E 336 80 24 00
+      E 144 90 26 5f
+      E 336 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 144 90 24 50
+      E 336 80 24 00
+      E 144 90 26 5f
+      E 336 80 26 00
+      E 624 90 24 64
+      E 336 80 24 00
+      E 144 90 24 4b
+      E 336 80 24 00
+      E 144 90 26 5f
+      E 336 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 144 90 24 50
+      E 336 80 24 00
+      E 144 90 26 5f
+      E 336 80 26 00
+      E 624 90 24 64
+      E 336 80 24 00
+      E 144 90 24 4b
+      E 336 80 24 00
+      E 144 90 26 5f
+      E 336 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 144 90 24 50
+      E 336 80 24 00
+      E 144 90 26 5f
+      E 336 80 26 00
+      E 624 90 24 64
+      E 336 80 24 00
+      E 144 90 24 4b
+      E 336 80 24 00
+      E 144 90 26 5f
+      E 336 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 144 90 24 50
+      E 336 80 24 00
+      E 144 90 26 5f
+      E 336 80 26 00
+      E 624 90 24 64
+      E 336 80 24 00
+      E 144 90 24 4b
+      E 336 80 24 00
+      E 144 90 26 5f
+      E 336 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 144 90 24 50
+      E 336 80 24 00
+      E 144 90 26 5f
+      E 336 80 26 00
+      E 624 90 24 64
+      E 336 80 24 00
+      E 144 90 24 4b
+      E 336 80 24 00
+      E 144 90 26 5f
+      E 336 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 144 90 24 50
+      E 336 80 24 00
+      E 144 90 26 5f
+      E 336 80 26 00
+      E 624 90 24 64
+      E 336 80 24 00
+      E 144 90 24 4b
+      E 336 80 24 00
+      E 144 90 26 5f
+      E 336 80 26 00
+      E 624 90 24 69
+      E 336 80 24 00
+      E 144 90 24 50
+      E 336 80 24 00
+      E 144 90 26 5f
+      E 336 80 26 00
+      E 624 90 24 64
+      E 336 80 24 00
+      E 144 90 24 4b
+      E 336 80 24 00
+      E 144 90 26 5f
+      E 336 80 26 00
+      E 624 b0 7b 00
+        CCEVT -1 0 0
+      >
+    >
+    <ITEM
+      POSITION 151.578947
+      SNAPOFFS 0
+      LENGTH 10.105263
+      LOOP 0
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0 0
+      FADEOUT 1 0 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {8B5FE3A7-7064-4B01-97A7-5B09CCE5ECEE}
+      IID 1
+      NAME "Outro"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {E659B865-5175-44AC-A9A1-6F48C4940668}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        CCINTERP 32
+        POOLEDEVTS {0FC1BBED-6FF7-440E-8959-609B30B6388E}
+        LAST_REC_LAUNCHQUANT 0
+      E 15360 b0 7b 00
+        CCEVT -1 0 0
+      >
+    >
+
+  >
+>

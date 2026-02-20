@@ -1,0 +1,23 @@
+# Project Strategy
+
+## Phases
+
+1. Arrange: lock song structures, key, BPM, and transitions.
+2. Track: record final performances against frozen arrangement snapshots.
+3. Edit: comp, timing, cleanup, and tuning.
+4. Mix: level, space, tone, automation, and revision rounds.
+5. Master: final sequence, loudness, and delivery formats.
+
+## Versioning
+
+1. `main`: milestone-only merges.
+2. `arrange`, `track`, `mix`: active phase branches.
+3. `song/<nn_slug>`: focused song branches for deep changes.
+4. Tags at major handoffs: `arrange-v1`, `track-v1`, `mix-v1`.
+
+## Session Rules
+
+1. Keep `.rpp` and `.mid` in git; keep renders out of git.
+2. Use consistent song numbering prefixes (`01_...14_...`) everywhere.
+3. Record one change per commit with clear scope in the message.
+4. Run `python scripts/generators/validate_catalog.py` before merging.
