@@ -30,4 +30,6 @@
 
 1. `docs/SOP.md`: daily creative workflow and commit rhythm.
 2. `docs/DRIVE_AUDIO_STRATEGY.md`: Drive foldering, naming, and recall strategy.
-3. `docs/session_logs/`: chronological production notes.
+3. `docs/REGENERATION_POLICY.md`: regeneration vs keep/prune rules.
+4. `docs/REAPER_STANDARD.md`: standard track list/routing/fx conventions.
+5. `docs/session_logs/`: chronological production notes.

@@ -58,6 +58,8 @@ Operational references:
 - `docs/SOP.md`
 - `docs/DRIVE_AUDIO_STRATEGY.md`
 - `docs/PROJECT_STRATEGY.md`
+- `docs/REGENERATION_POLICY.md`
+- `docs/REAPER_STANDARD.md`
 
 ---
 
