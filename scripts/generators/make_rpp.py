@@ -310,19 +310,10 @@ def build_rpp(output_dir, filename, song_title, bpm, sections):
     PATTERN 2863311530 2863311530
     MULT 1
   >
-  <GLOBAL_AUTO
-  >
   MASTER_NCH 2
   MASTER_VOLUME 1
-  MASTER_PAN 0
-  MASTER_MUTE 0
-  MASTER_BYPASS 0
   MASTER_FX 1
   MASTER_SEL 0
-  <MASTER_MIXENV
-  >
-  <MASTER_STEREOOUT
-  >
   <TEMPOENVEX
     ACT 0 -1
     VIS 1 0 1
