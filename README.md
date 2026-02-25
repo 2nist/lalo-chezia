@@ -34,15 +34,19 @@
 ```
 lalo-chezia/
 ├── docs/
-│   ├── arrangements/    # per-song arrangement docs
-│   ├── lyrics/
-│   └── source_material/ # imported legacy notes/lyrics/docs
-├── midi/                # .mid files — chords + drums per song
-├── reaper/              # .rpp project files per song
-├── samples/             # small original samples only
+│   ├── arrangements/        # per-song arrangement docs (markdown format)
+│   ├── lyrics/             # lyric documents and analysis
+│   ├── source_material/    # imported legacy notes/lyrics/docs
+│   ├── session_logs/       # production session documentation
+│   ├── drive/             # audio asset tracking
+│   ├── DOCUMENTATION_STYLE_GUIDE.md  # documentation standards
+│   └── SOP.md             # production workflow
+├── midi/                  # .mid files — chords + drums per song
+├── reaper/                # .rpp project files per song
+├── samples/               # small original samples only
 └── scripts/
-    ├── generators/      # Python scripts (make_rpp.py, template builders, QC)
-    └── reaper/          # album-specific JSFX / Lua only
+    ├── generators/        # Python scripts (make_rpp.py, template builders, QC)
+    └── reaper/            # album-specific JSFX / Lua only
 ```
 
 > General-purpose REAPER tools live in [reaper-toolkit](https://github.com/2nist/reaper-toolkit)
