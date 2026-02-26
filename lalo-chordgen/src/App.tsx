@@ -30,10 +30,10 @@ import { Pattern, Section, SectionType } from './types/progression'
 import AppCombined from './AppCombined'
 
 function App() {
-  // Check if we should use the combined app or the exploration app
-  const useCombinedApp = window.location.hash === '#combined'
+  // Default to the template canvas; append #explore to load the old demo
+  const useExploreApp = window.location.hash === '#explore'
   
-  if (useCombinedApp) {
+  if (!useExploreApp) {
     return <AppCombined />
   }
 

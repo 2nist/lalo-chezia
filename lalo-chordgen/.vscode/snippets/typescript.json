@@ -1,0 +1,101 @@
+{
+  "Tailwind Component": {
+    "prefix": "tw-comp",
+    "body": [
+      "const ${1:ComponentName} = ({ children, className }) => {",
+      "  return (",
+      "    <div className={`${2:base-classes} ${className || ''}`}>",
+      "      {children}",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default ${1:ComponentName};"
+    ],
+    "description": "Create a Tailwind component"
+  },
+  "Chord Quality Component": {
+    "prefix": "chord-comp",
+    "body": [
+      "const ${1:ChordComponent} = ({ quality, children, className }) => {",
+      "  const qualityClasses = {",
+      "    maj: 'quality-maj',",
+      "    min: 'quality-min',",
+      "    dom: 'quality-dom',",
+      "    dim: 'quality-dim',",
+      "    aug: 'quality-aug',",
+      "    sus: 'quality-sus',",
+      "    ext: 'quality-ext',",
+      "    alt: 'quality-alt'",
+      "  };",
+      "",
+      "  return (",
+      "    <div className={`chord-bg-${quality} chord-text-${quality} ${className || ''}`}>",
+      "      {children}",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default ${1:ChordComponent};"
+    ],
+    "description": "Create a chord quality component with semantic classes"
+  },
+  "Music Button": {
+    "prefix": "music-btn",
+    "body": [
+      "const ${1:ButtonName} = ({ onClick, children, variant = 'primary' }) => {",
+      "  const baseClasses = 'px-3 py-1.5 rounded font-medium transition-all duration-200';",
+      "  const variantClasses = {",
+      "    primary: 'bg-quality-maj text-white hover:bg-yellow-600',",
+      "    secondary: 'bg-quality-min text-white hover:bg-turquoise-600',",
+      "    destructive: 'bg-quality-aug text-white hover:bg-pink-600',",
+      "    ghost: 'bg-transparent border-2 border-quality-maj text-quality-maj hover:bg-quality-maj hover:text-white'",
+      "  };",
+      "",
+      "  return (",
+      "    <button",
+      "      className={`${baseClasses} ${variantClasses[variant]}`}",
+      "      onClick={onClick}",
+      "    >",
+      "      {children}",
+      "    </button>",
+      "  );",
+      "};",
+      "",
+      "export default ${1:ButtonName};"
+    ],
+    "description": "Create a music-themed button component"
+  },
+  "Responsive Grid": {
+    "prefix": "responsive-grid",
+    "body": [
+      "<div className=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4\">",
+      "  <div className=\"${1:col-span-1}\">",
+      "    ${2:Content}",
+      "  </div>",
+      "  <div className=\"${3:col-span-1}\">",
+      "    ${4:Content}",
+      "  </div>",
+      "  <div className=\"${5:col-span-1}\">",
+      "    ${6:Content}",
+      "  </div>",
+      "</div>"
+    ],
+    "description": "Create a responsive grid layout"
+  },
+  "Music Card": {
+    "prefix": "music-card",
+    "body": [
+      "<div className=\"card bg-app border-2 border-muted rounded-lg p-4 shadow-md\">",
+      "  <div className=\"flex items-center justify-between mb-3\">",
+      "    <h3 className=\"text-lg font-semibold text-foreground\">${1:Title}</h3>",
+      "    <span className=\"text-sm text-muted-foreground\">${2:Subtitle}</span>",
+      "  </div>",
+      "  <div className=\"space-y-2\">",
+      "    ${3:Content}",
+      "  </div>",
+      "</div>"
+    ],
+    "description": "Create a music-themed card component"
+  }
+}

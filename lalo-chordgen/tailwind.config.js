@@ -3,37 +3,75 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "1rem",
+      screens: {
+        sm: "640px",
+        md: "768px", 
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1536px",
+      },
+    },
     extend: {
       colors: {
-        app: '#0f172a',
-        panel: '#1e293b',
-        muted: '#64748b',
-        'muted-text': '#94a3b8',
-        'quality-maj': '#f59e0b', // Orange
-        'quality-min': '#22d3ee', // Turquoise
-        'quality-dom': '#eab308', // Yellow
-        'quality-dim': '#a855f7', // Purple
-        'quality-aug': '#ec4899', // Pink
-        'quality-sus': '#ef4444', // Red
-        'quality-ext': '#22c55e', // Green
-        'quality-alt': '#3b82f6', // Blue
-        'pad-empty': '#1f2937',
-        'duration-pad-on': '#334155',
-        'duration-pad-off': '#0f172a',
-        'slot-selected': '#f59e0b',
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
       },
-      fontFamily: {
-        mono: ['JetBrains Mono', 'Monaco', 'Consolas', 'monospace'],
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
-      spacing: {
-        'compact': '2px',
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
       },
-      fontSize: {
-        'xs': ['0.65rem', { lineHeight: '1' }],
-        'sm': ['0.75rem', { lineHeight: '1.2' }],
-        'base': ['0.875rem', { lineHeight: '1.4' }],
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
