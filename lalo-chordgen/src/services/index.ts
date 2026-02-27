@@ -36,3 +36,6 @@ export {
   type CadenceType,
   type CadenceStrength
 } from "./progression/CadenceManager";
+
+// MIDI Services
+export * from "./midi";

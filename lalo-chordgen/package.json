@@ -20,6 +20,8 @@
   "license": "ISC",
   "dependencies": {
     "@alloc/quick-lru": "^5.2.0",
+    "@dnd-kit/core": "^6.1.0",
+    "@dnd-kit/sortable": "^7.0.2",
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-checkbox": "^1.3.3",
     "@radix-ui/react-dialog": "^1.1.15",
@@ -52,10 +54,9 @@
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.1",
     "tone": "^14.7.77",
-    "@dnd-kit/core": "^6.1.0",
-    "@dnd-kit/sortable": "^6.0.1",
     "typescript": "^5.9.3",
     "vite": "^7.3.1",
+    "webmidi": "^3.1.14",
     "zustand": "^5.0.11"
   },
   "devDependencies": {

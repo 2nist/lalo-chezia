@@ -4,6 +4,7 @@ import SandboxCanvas from './components/SandboxCanvas'
 import ModeToggle, { type Mode } from './components/ModeToggle'
 import SongRail from './components/SongRail'
 import CardBrowser from './components/CardBrowser'
+import MidiRoutingDialog from './components/MidiRoutingDialog'
 import { Button } from './components/ui/button'
 import type { IdeaCardData } from './components/IdeaCard'
 import * as ProgressionManager from './services/progression/ProgressionManager'
@@ -38,12 +39,15 @@ export default function App() {
             Database: <strong>{stats.totalCards}</strong> cards ({stats.toneCards} tone, {stats.timeCards} time)
           </p>
         </div>
-        <Button
-          variant={showBrowser ? 'default' : 'outline'}
-          onClick={() => setShowBrowser(!showBrowser)}
-        >
-          {showBrowser ? '🔙 Back to Sandbox' : '📚 Browse Library'}
-        </Button>
+        <div className="flex items-center gap-2">
+          <MidiRoutingDialog />
+          <Button
+            variant={showBrowser ? 'default' : 'outline'}
+            onClick={() => setShowBrowser(!showBrowser)}
+          >
+            {showBrowser ? '🔙 Back to Sandbox' : '📚 Browse Library'}
+          </Button>
+        </div>
       </header>
 
       {showBrowser ? (
@@ -78,7 +82,12 @@ export default function App() {
               <div className="mb-2">Mode</div>
               <ModeToggle mode={mode} onChange={m=>setMode(m)} />
               <div className="mt-3 mb-2">Role</div>
-              <select value={role} onChange={e=>setRole(e.target.value)} className="bg-white/10 text-white p-1 rounded">
+              <select
+                value={role}
+                onChange={e=>setRole(e.target.value)}
+                className="bg-white/10 text-white p-1 rounded"
+                aria-label="Select role"
+              >
                 <option value="drums">Drums</option>
                 <option value="bass">Bass</option>
                 <option value="pads">Pads</option>
