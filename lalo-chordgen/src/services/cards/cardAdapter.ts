@@ -3,7 +3,7 @@
  * Converts between IdeaCardData (legacy) and Card (new database system)
  */
 
-import { Card, CardCategory, CardScope } from '../../types/card';
+import { Card, CardCategory, CardScope, CardDurationType } from '../../types/card';
 import type { IdeaCardData } from '../../components/IdeaCard';
 
 /**
@@ -16,7 +16,9 @@ export function cardToIdeaCardData(card: Card): IdeaCardData {
     type: card.category === CardCategory.TONE ? 'tone' : 'time',
     scope: card.scope === CardScope.GLOBAL ? 'global' : 'local',
     label: card.name,
-    lengthBeats: 4, // Default, can be overridden
+    durationType: card.durationType === CardDurationType.CONTINUOUS ? 'continuous' : 'instance',
+    lengthBeats: card.lengthBeats || undefined, // Only set if defined
+    repeatCount: card.repeatCount || undefined,
     intensity: 0.5,
     tags: card.tags,
   };
@@ -65,6 +67,21 @@ export function cardToIdeaCardData(card: Card): IdeaCardData {
         tempoMultiplier: timeMusicData.tempoModifier,
       };
     }
+  }
+  
+  // Add MIDI clip data if present
+  if (card.midiClip) {
+    ideaCard.midiClip = {
+      notes: card.midiClip.notes.map(note => ({
+        pitch: note.pitch,
+        velocity: note.velocity,
+        startTime: note.startTime,
+        duration: note.duration,
+      })),
+      tempo: card.midiClip.tempo,
+      timeSignature: card.midiClip.timeSignature,
+      lengthInBeats: card.midiClip.lengthInBeats,
+    };
   }
 
   return ideaCard;

@@ -17,6 +17,13 @@ export enum CardScope {
   LOCAL = 'local',
 }
 
+export enum CardDurationType {
+  /** One-shot event (e.g., cadence, transition) - plays once with fixed duration */
+  INSTANCE = 'instance',
+  /** Continuous state (e.g., mode, time signature) - stays active until replaced */
+  CONTINUOUS = 'continuous',
+}
+
 export enum ToneCardType {
   // Global Tone
   MODE = 'mode',
@@ -106,6 +113,24 @@ export interface TimeMusicData {
   clavePattern?: string;     // e.g., 'son', 'rumba', 'bossa'
 }
 
+  // ============================================================================
+  // MIDI DATA STRUCTURES
+  // ============================================================================
+
+  export interface MIDINoteData {
+    pitch: number;              // MIDI note number (0-127)
+    velocity: number;           // Note velocity (0-127)
+    startTime: number;          // Start time in beats
+    duration: number;           // Note duration in beats
+  }
+
+  export interface MIDIClipData {
+    notes: MIDINoteData[];      // Array of MIDI notes
+    tempo?: number;             // Tempo in BPM
+    timeSignature?: [number, number]; // [numerator, denominator] e.g., [4, 4]
+    lengthInBeats?: number;     // Total length of clip in beats
+  }
+
 // ============================================================================
 // CARD INTERFACE
 // ============================================================================
@@ -121,9 +146,17 @@ export interface Card {
   toneType?: ToneCardType;
   timeType?: TimeCardType;
   
+  // Duration behavior
+  durationType: CardDurationType;  // Required: determines if card is instant or continuous
+  lengthBeats?: number;            // Optional: beat length of ONE iteration (for INSTANCE cards)
+  repeatCount?: number;            // Optional: how many times pattern repeats (default: 1)
+  
   // Music theory data
   toneMusicData?: ToneMusicData;
   timeMusicData?: TimeMusicData;
+  
+  // MIDI performance data
+  midiClip?: MIDIClipData;    // Optional: actual MIDI performance data for patterns
   
   // UI metadata
   description: string;

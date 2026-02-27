@@ -1,24 +1,19 @@
-import React, { useState, useRef } from 'react'
-import TimelineHeatmap, { HeatEvent } from './TimelineHeatmap'
+import React, { useState } from 'react'
+import { useTimelinePlayback } from '@/hooks/useTimelinePlayback'
+import Timeline from './Timeline'
+import type { TimelineRail } from './Timeline'
+import type { CardRailItem } from './CardRail'
 import type { IdeaCardData } from './IdeaCard'
 import PreviewPlayer from '../services/audio/PreviewPlayer'
 import TonePlayer from '../services/audio/TonePlayer'
 import { canDrop } from '../services/rules/ModeRules'
 import type { Mode } from './ModeToggle'
-import {
-  DndContext,
-  DragEndEvent,
-  useSensor,
-  useSensors,
-  PointerSensor,
-} from '@dnd-kit/core'
-import { useDraggable } from '@dnd-kit/core'
 
 type SandboxItem = {
   id: string
   card: IdeaCardData
-  x: number
-  y: number
+  startBeat: number
+  railId: string
 }
 
 type Section = {
@@ -31,74 +26,80 @@ type Props = { mode?: Mode, role?: string, onCommitSection?: (section:any)=>void
 
 export default function SandboxCanvas({mode='Free', role='drums', onCommitSection}: Props) {
   const [items, setItems] = useState<SandboxItem[]>([])
-  const containerRef = useRef<HTMLDivElement | null>(null)
   const [selectedIds, setSelectedIds] = useState<Record<string,boolean>>({})
   const [sections, setSections] = useState<Section[]>([])
   const pxPerBeat = 24
   const totalBeats = 64
-  const sensors = useSensors(useSensor(PointerSensor))
+  const rails: TimelineRail[] = [
+    { id: 'global', label: 'Global', colorClass: 'bg-amber-500/20 border-amber-500/40 text-amber-100' },
+    { id: 'drum', label: 'Drum', colorClass: 'bg-blue-500/20 border-blue-500/40 text-blue-100' },
+    { id: 'bass', label: 'Bass', colorClass: 'bg-emerald-500/20 border-emerald-500/40 text-emerald-100' },
+    { id: 'harmony', label: 'Harmony', colorClass: 'bg-purple-500/20 border-purple-500/40 text-purple-100' },
+    { id: 'melody', label: 'Melody', colorClass: 'bg-pink-500/20 border-pink-500/40 text-pink-100' },
+  ]
 
-  // Draggable item component to keep hook usage stable per rendered item
-  function DraggableItem({it}:{it: SandboxItem}){
-    const {listeners, attributes, setNodeRef, transform} = useDraggable({id: it.id})
-    const style: React.CSSProperties = {
-      position: 'absolute',
-      left: it.x,
-      top: it.y,
-      transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : undefined,
-      touchAction: 'none',
-    }
+  const timelineItems: CardRailItem[] = items.map((it) => ({
+    id: it.id,
+    card: it.card,
+    startBeat: it.startBeat,
+    railId: it.railId,
+  }))
 
-    return (
-      <div
-        ref={setNodeRef}
-        {...listeners}
-        {...attributes}
-        onClick={() => toggleSelect(it.id)}
-        style={style}
-        className={`p-2 border rounded-md w-36 text-sm ${selectedIds[it.id] ? 'bg-purple-600 border-purple-400' : 'bg-white/6 border-white/10'} text-white`}
-      >
-        <div className="flex items-center justify-between">
-          <div className="font-semibold">{it.card.label}</div>
-          <div className="flex gap-1">
-            <button onClick={(e)=>{e.stopPropagation(); PreviewPlayer.playIdeaCard(it.card)}} className="bg-green-600 px-2 py-0.5 rounded text-xs">Play</button>
-            <button onClick={(e)=>{e.stopPropagation(); PreviewPlayer.stopAll()}} className="bg-red-600 px-2 py-0.5 rounded text-xs">Stop</button>
-          </div>
-        </div>
-        <div className="text-xs text-slate-300">{it.card.type} • {it.card.lengthBeats}b</div>
-      </div>
-    )
-  }
+  // Enable timeline playback integration
+  useTimelinePlayback({
+    items: timelineItems,
+    enabled: true,
+    onItemTriggered: (item) => {
+      console.log('Timeline triggered:', item.card.label, 'at beat', item.startBeat)
+    },
+  })
 
-  const onDragOver = (e: React.DragEvent) => {
-    e.preventDefault()
-    e.dataTransfer.dropEffect = 'copy'
-  }
-
-  const onDrop = (e: React.DragEvent) => {
-    e.preventDefault()
-    const raw = e.dataTransfer.getData('application/json')
-    if (!raw) return
-    let card: IdeaCardData
-    try { card = JSON.parse(raw) } catch { return }
-    // enforce simple mode rules
-    if (!canDrop(mode, role, card)){
-      // brief visual feedback - alert for now
+  const handleDropCard = (card: IdeaCardData, startBeat: number, railId: string) => {
+    if (!canDrop(mode, role, card)) {
       alert(`In ${mode} mode, role '${role}' cannot place ${card.type} cards.`)
       return
     }
-    const rect = containerRef.current?.getBoundingClientRect()
-    if (!rect) return
-    const x = Math.round((e.clientX - rect.left) / pxPerBeat) * pxPerBeat
-    const y = Math.max(0, Math.min(rect.height - 40, e.clientY - rect.top - 20))
 
     const newItem: SandboxItem = {
       id: `${card.id}-${Date.now()}`,
-      card,
-      x,
-      y
+      card: {
+        ...card,
+        lengthBeats: Math.max(1, card.lengthBeats ?? 4),
+      },
+      startBeat,
+      railId,
     }
-    setItems(prev => [...prev, newItem])
+    setItems((prev) => [...prev, newItem])
+  }
+
+  const handleMoveCard = (id: string, deltaBeat: number) => {
+    setItems((prev) =>
+      prev.map((it) => {
+        if (it.id !== id) return it
+        const nextBeat = Math.max(0, Math.min(totalBeats - 1, it.startBeat + deltaBeat))
+        return { ...it, startBeat: nextBeat }
+      })
+    )
+  }
+
+  const handleAdjustLength = (id: string, deltaBeats: number) => {
+    setItems((prev) =>
+      prev.map((it) => {
+        if (it.id !== id) return it
+        const current = Math.max(1, it.card.lengthBeats ?? 4)
+        const next = Math.max(1, Math.min(16, current + deltaBeats))
+        return { ...it, card: { ...it.card, lengthBeats: next } }
+      })
+    )
+  }
+
+  const handleDeleteCard = (id: string) => {
+    setItems((prev) => prev.filter((it) => it.id !== id))
+    setSelectedIds((prev) => {
+      const copy = { ...prev }
+      delete copy[id]
+      return copy
+    })
   }
 
   const toggleSelect = (id:string) => {
@@ -110,7 +111,7 @@ export default function SandboxCanvas({mode='Free', role='drums', onCommitSectio
     if (ids.length===0) return
     const groupItems = items.filter(it => ids.includes(it.id))
     const remaining = items.filter(it => !ids.includes(it.id))
-    const startBeat = Math.min(...groupItems.map(it=>Math.round(it.x/pxPerBeat)))
+    const startBeat = Math.min(...groupItems.map(it => it.startBeat))
     const section: Section = { id: `sec-${Date.now()}`, items: groupItems, startBeat }
     setSections(prev=>[...prev, section])
     setItems(remaining)
@@ -118,10 +119,10 @@ export default function SandboxCanvas({mode='Free', role='drums', onCommitSectio
   }
 
   const playSection = async (sec:Section) => {
-    // convert items into sequence events by their x order
-    const seq = sec.items.slice().sort((a,b)=>a.x-b.x).map((it, i) => ({
+    // convert items into sequence events by beat order
+    const seq = sec.items.slice().sort((a,b)=>a.startBeat-b.startBeat).map((it) => ({
       notes: it.card.notes ?? [60,64,67],
-      timeOffset: i * 0.5,
+      timeOffset: it.startBeat * 0.25,
       duration: Math.max(0.4, it.card.lengthBeats * 0.25)
     }))
     // try Tone first
@@ -149,56 +150,27 @@ export default function SandboxCanvas({mode='Free', role='drums', onCommitSectio
     setSections(prev=>prev.filter(s=>s.id!==sec.id))
   }
 
-  const heatEvents: HeatEvent[] = items.map(it => ({
-    startBeat: Math.round(it.x / pxPerBeat),
-    duration: it.card.lengthBeats,
-    intensity: it.card.intensity ?? 0.6,
-    label: it.card.label
-  }))
-
   return (
     <div className="bg-white/5 border border-white/10 rounded-lg p-4">
       <div className="flex justify-between items-center mb-3">
-        <h3 className="text-white font-semibold">Sandbox Canvas</h3>
-        <div className="text-slate-300 text-sm">Drag ideas onto the canvas to experiment</div>
+        <h3 className="text-white font-semibold">Timeline Sandbox</h3>
+        <div className="text-slate-300 text-sm">Drop cards to beat-aligned CardRails</div>
       </div>
 
-      <div
-        ref={containerRef}
-        onDragOver={onDragOver}
-        onDrop={onDrop}
-        style={{height: 240, position:'relative'}}
-        className="bg-black/20 rounded-lg overflow-hidden"
-      >
-        <div style={{position:'absolute', left:8, top:8, right:8}}>
-          <TimelineHeatmap events={heatEvents} totalBeats={totalBeats} pxPerBeat={pxPerBeat} height={120} />
-        </div>
-
-        <DndContext sensors={sensors} onDragEnd={(event: DragEndEvent) => {
-          const {active, delta} = event
-          if (!active) return
-          const id = String(active.id)
-          if (!delta) return
-          const dx = Math.round(delta.x)
-          const dy = Math.round(delta.y)
-          setItems(prev => prev.map(it => {
-            if (it.id !== id) return it
-            const rect = containerRef.current?.getBoundingClientRect()
-            // apply delta and snap to grid
-            let nx = it.x + dx
-            let ny = it.y + dy
-            if (rect) {
-              nx = Math.round(Math.max(0, Math.min(rect.width - 140, nx)) / pxPerBeat) * pxPerBeat
-              ny = Math.round(Math.max(0, Math.min(rect.height - 40, ny)))
-            }
-            return {...it, x: nx, y: ny}
-          }))
-        }}>
-          {items.map(it => (
-            <DraggableItem key={it.id} it={it} />
-          ))}
-        </DndContext>
-      </div>
+      <Timeline
+        items={timelineItems}
+        rails={rails}
+        totalBeats={totalBeats}
+        pxPerBeat={pxPerBeat}
+        selectedIds={selectedIds}
+        showPlaybackCursor={true}
+        onToggleSelect={toggleSelect}
+        onPlayCard={(card) => PreviewPlayer.playIdeaCard(card)}
+        onMoveCard={handleMoveCard}
+        onAdjustLength={handleAdjustLength}
+        onDeleteCard={handleDeleteCard}
+        onDropCard={handleDropCard}
+      />
       <div className="mt-3 flex gap-2">
         <button onClick={groupSelected} className="bg-indigo-600 px-3 py-2 rounded text-sm text-white">Group Selected</button>
         <button onClick={()=>{setItems([]); setSelectedIds({})}} className="bg-rose-600 px-3 py-2 rounded text-sm text-white">Clear Canvas</button>

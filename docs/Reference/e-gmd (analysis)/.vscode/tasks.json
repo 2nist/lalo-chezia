@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "run_pipeline",
+      "type": "shell",
+      "command": "python",
+      "args": ["scripts/run_pipeline.py"],
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "process_patterns",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "scripts/process_patterns.py",
+        "--input",
+        "pattern_library.json",
+        "--outdir",
+        "outputs",
+        "--skip-full"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

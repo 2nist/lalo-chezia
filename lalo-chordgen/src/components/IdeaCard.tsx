@@ -8,9 +8,27 @@ export type IdeaCardData = {
   type: 'time' | 'tone'
   scope: 'global' | 'local'
   label: string
-  lengthBeats: number
+  
+  // Duration behavior
+  durationType?: 'instance' | 'continuous' // instance = one-shot, continuous = stays until replaced
+  lengthBeats?: number  // Beat length of one iteration (for instance cards)
+  repeatCount?: number  // How many times the pattern repeats (default: 1)
+  
   intensity?: number
   notes?: number[] // optional MIDI note numbers for audition
+  
+  // MIDI clip data
+  midiClip?: {
+    notes: Array<{
+      pitch: number
+      velocity: number
+      startTime: number
+      duration: number
+    }>
+    tempo?: number
+    timeSignature?: [number, number]
+    lengthInBeats?: number
+  }
   
   // Global tone properties
   mode?: 'Ionian' | 'Dorian' | 'Phrygian' | 'Lydian' | 'Mixolydian' | 'Aeolian' | 'Locrian'

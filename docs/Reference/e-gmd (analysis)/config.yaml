@@ -1,0 +1,35 @@
+# Pattern Analysis Configuration
+
+paths:
+  egmd_collection: "./data/egmd"
+  output_library: "./analysis/output/pattern_library.json"
+  process_outdir: "./outputs"
+
+analysis:
+  # Normalize all patterns to N bars
+  pattern_length_bars: 4
+
+  # MIDI resolution
+  ticks_per_beat: 480
+
+  # Complexity calculation weights
+  complexity_weights:
+    syncopation: 0.4
+    velocity_variance: 0.3
+    note_density: 0.3
+
+  # Categorization
+  drum_mapping:
+    kick: [35, 36]
+    snare: [37, 38, 40]
+    hats_ride: [42, 44, 46, 51, 59]
+    percussion: [41, 43, 45, 47, 48, 49, 52, 55, 57]
+
+  # Filtering
+  min_notes_per_pattern: 4  # Skip patterns with too few notes
+  max_complexity: 1.0
+
+output:
+  format: "json"
+  pretty_print: true
+  include_metadata: true

@@ -7,10 +7,12 @@ import {
   Card,
   CardCategory,
   CardScope,
+  CardDurationType,
   ToneCardType,
   TimeCardType,
   CardDatabase,
 } from '../types/card';
+import { egmdDrumCards } from './egmdDrumCards';
 
 // ============================================================================
 // GLOBAL TONE CARDS - MODES
@@ -23,6 +25,7 @@ const modeCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.GLOBAL,
     toneType: ToneCardType.MODE,
+    durationType: CardDurationType.CONTINUOUS, // Mode stays active until replaced
     toneMusicData: {
       mode: 'Ionian',
       intervals: [0, 2, 4, 5, 7, 9, 11],
@@ -40,6 +43,7 @@ const modeCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.GLOBAL,
     toneType: ToneCardType.MODE,
+    durationType: CardDurationType.CONTINUOUS,
     toneMusicData: {
       mode: 'Dorian',
       intervals: [0, 2, 3, 5, 7, 9, 10],
@@ -57,6 +61,7 @@ const modeCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.GLOBAL,
     toneType: ToneCardType.MODE,
+    durationType: CardDurationType.CONTINUOUS,
     toneMusicData: {
       mode: 'Phrygian',
       intervals: [0, 1, 3, 5, 7, 8, 10],
@@ -74,6 +79,7 @@ const modeCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.GLOBAL,
     toneType: ToneCardType.MODE,
+    durationType: CardDurationType.CONTINUOUS,
     toneMusicData: {
       mode: 'Lydian',
       intervals: [0, 2, 4, 6, 7, 9, 11],
@@ -91,6 +97,7 @@ const modeCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.GLOBAL,
     toneType: ToneCardType.MODE,
+    durationType: CardDurationType.CONTINUOUS,
     toneMusicData: {
       mode: 'Mixolydian',
       intervals: [0, 2, 4, 5, 7, 9, 10],
@@ -108,6 +115,7 @@ const modeCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.GLOBAL,
     toneType: ToneCardType.MODE,
+    durationType: CardDurationType.CONTINUOUS,
     toneMusicData: {
       mode: 'Aeolian',
       intervals: [0, 2, 3, 5, 7, 8, 10],
@@ -125,6 +133,7 @@ const modeCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.GLOBAL,
     toneType: ToneCardType.MODE,
+    durationType: CardDurationType.CONTINUOUS,
     toneMusicData: {
       mode: 'Locrian',
       intervals: [0, 1, 3, 5, 6, 8, 10],
@@ -149,6 +158,9 @@ const progressionCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.GLOBAL,
     toneType: ToneCardType.CHORD_PROGRESSION,
+    durationType: CardDurationType.INSTANCE,
+    lengthBeats: 16, // 4 chords × 4 beats each = one loop
+    repeatCount: 4,  // Typically repeats 4 times (= 64 beat section)
     toneMusicData: {
       chordSequence: ['I', 'V', 'vi', 'IV'],
       quality: 'major',
@@ -164,6 +176,9 @@ const progressionCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.GLOBAL,
     toneType: ToneCardType.CHORD_PROGRESSION,
+    durationType: CardDurationType.INSTANCE,
+    lengthBeats: 12, // 3 chords × 4 beats = one turnaround
+    repeatCount: 8,  // Often repeated multiple times in jazz
     toneMusicData: {
       chordSequence: ['ii', 'V', 'I'],
       quality: 'major',
@@ -179,6 +194,9 @@ const progressionCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.GLOBAL,
     toneType: ToneCardType.CHORD_PROGRESSION,
+    durationType: CardDurationType.INSTANCE,
+    lengthBeats: 16,
+    repeatCount: 4,
     toneMusicData: {
       chordSequence: ['I', 'I', 'I', 'I', 'IV', 'IV', 'I', 'I', 'V', 'IV', 'I', 'V'],
       quality: 'dominant',
@@ -194,6 +212,9 @@ const progressionCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.GLOBAL,
     toneType: ToneCardType.CHORD_PROGRESSION,
+    durationType: CardDurationType.INSTANCE,
+    lengthBeats: 16,
+    repeatCount: 4,
     toneMusicData: {
       chordSequence: ['I', 'VI', 'ii', 'V'],
       quality: 'major',
@@ -209,6 +230,9 @@ const progressionCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.GLOBAL,
     toneType: ToneCardType.CHORD_PROGRESSION,
+    durationType: CardDurationType.INSTANCE,
+    lengthBeats: 16,
+    repeatCount: 4,
     toneMusicData: {
       chordSequence: ['I', 'V', 'vi', 'iii', 'IV', 'I', 'IV', 'V'],
       quality: 'major',
@@ -224,6 +248,9 @@ const progressionCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.GLOBAL,
     toneType: ToneCardType.CHORD_PROGRESSION,
+    durationType: CardDurationType.INSTANCE,
+    lengthBeats: 16,
+    repeatCount: 4,
     toneMusicData: {
       chordSequence: ['vi', 'ii', 'V', 'I'],
       quality: 'major',
@@ -239,6 +266,9 @@ const progressionCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.GLOBAL,
     toneType: ToneCardType.CHORD_PROGRESSION,
+    durationType: CardDurationType.INSTANCE,
+    lengthBeats: 16,
+    repeatCount: 4,
     toneMusicData: {
       chordSequence: ['I', 'IV', 'V'],
       quality: 'major',
@@ -261,6 +291,7 @@ const voicingCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.GLOBAL,
     toneType: ToneCardType.VOICING,
+    durationType: CardDurationType.CONTINUOUS,
     toneMusicData: {
       voicing: 'closed',
     },
@@ -274,6 +305,7 @@ const voicingCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.GLOBAL,
     toneType: ToneCardType.VOICING,
+    durationType: CardDurationType.CONTINUOUS,
     toneMusicData: {
       voicing: 'open',
     },
@@ -287,6 +319,7 @@ const voicingCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.GLOBAL,
     toneType: ToneCardType.VOICING,
+    durationType: CardDurationType.CONTINUOUS,
     toneMusicData: {
       voicing: 'drop2',
     },
@@ -300,6 +333,7 @@ const voicingCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.GLOBAL,
     toneType: ToneCardType.VOICING,
+    durationType: CardDurationType.CONTINUOUS,
     toneMusicData: {
       voicing: 'shell',
     },
@@ -313,6 +347,7 @@ const voicingCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.GLOBAL,
     toneType: ToneCardType.VOICING,
+    durationType: CardDurationType.CONTINUOUS,
     toneMusicData: {
       voicing: 'rootless',
     },
@@ -333,6 +368,9 @@ const cadenceCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.LOCAL,
     toneType: ToneCardType.CADENCE,
+    durationType: CardDurationType.INSTANCE, // Cadence is a one-shot ending
+    lengthBeats: 8, // 2 chords × 4 beats
+    repeatCount: 1,  // Cadences typically play once (ending)
     toneMusicData: {
       chordSequence: ['V', 'I'],
       quality: 'major',
@@ -348,6 +386,9 @@ const cadenceCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.LOCAL,
     toneType: ToneCardType.CADENCE,
+    durationType: CardDurationType.INSTANCE,
+    lengthBeats: 8,
+    repeatCount: 1,  // Single ending gesture
     toneMusicData: {
       chordSequence: ['IV', 'I'],
       quality: 'major',
@@ -363,6 +404,9 @@ const cadenceCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.LOCAL,
     toneType: ToneCardType.CADENCE,
+    durationType: CardDurationType.INSTANCE,
+    lengthBeats: 4,
+    repeatCount: 1,
     toneMusicData: {
       chordSequence: ['I', 'V'],
       quality: 'major',
@@ -378,6 +422,9 @@ const cadenceCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.LOCAL,
     toneType: ToneCardType.CADENCE,
+    durationType: CardDurationType.INSTANCE,
+    lengthBeats: 4,
+    repeatCount: 1,
     toneMusicData: {
       chordSequence: ['V', 'vi'],
       quality: 'major',
@@ -393,6 +440,9 @@ const cadenceCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.LOCAL,
     toneType: ToneCardType.CADENCE,
+    durationType: CardDurationType.INSTANCE,
+    lengthBeats: 4,
+    repeatCount: 1,
     toneMusicData: {
       chordSequence: ['iv', 'V'],
       quality: 'minor',
@@ -415,6 +465,9 @@ const bassPatternCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.LOCAL,
     toneType: ToneCardType.BASS_PATTERN,
+    durationType: CardDurationType.INSTANCE,
+    lengthBeats: 16,
+    repeatCount: 4,
     toneMusicData: {
       intervals: [0, 2, 4, 7, 9],
       scale: ['1', '2', '3', '5', '6'],
@@ -431,6 +484,9 @@ const bassPatternCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.LOCAL,
     toneType: ToneCardType.BASS_PATTERN,
+    durationType: CardDurationType.INSTANCE,
+    lengthBeats: 16,
+    repeatCount: 4,
     toneMusicData: {
       intervals: [0, 3, 5, 7, 10],
       scale: ['1', '♭3', '4', '5', '♭7'],
@@ -447,6 +503,9 @@ const bassPatternCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.LOCAL,
     toneType: ToneCardType.BASS_PATTERN,
+    durationType: CardDurationType.INSTANCE,
+    lengthBeats: 16,
+    repeatCount: 4,
     toneMusicData: {
       intervals: [0, 3, 5, 6, 7, 10],
       scale: ['1', '♭3', '4', '♭5', '5', '♭7'],
@@ -463,6 +522,9 @@ const bassPatternCards: Card[] = [
     category: CardCategory.TONE,
     scope: CardScope.LOCAL,
     toneType: ToneCardType.BASS_PATTERN,
+    durationType: CardDurationType.INSTANCE,
+    lengthBeats: 16,
+    repeatCount: 4,
     toneMusicData: {
       bassMovement: 'stepwise',
     },
@@ -483,6 +545,7 @@ const timeSignatureCards: Card[] = [
     category: CardCategory.TIME,
     scope: CardScope.GLOBAL,
     timeType: TimeCardType.TIME_SIGNATURE,
+    durationType: CardDurationType.CONTINUOUS, // Time signature stays active
     timeMusicData: {
       meter: '4/4',
       beatsPerMeasure: 4,
@@ -500,6 +563,7 @@ const timeSignatureCards: Card[] = [
     category: CardCategory.TIME,
     scope: CardScope.GLOBAL,
     timeType: TimeCardType.TIME_SIGNATURE,
+    durationType: CardDurationType.CONTINUOUS,
     timeMusicData: {
       meter: '3/4',
       beatsPerMeasure: 3,
@@ -517,6 +581,7 @@ const timeSignatureCards: Card[] = [
     category: CardCategory.TIME,
     scope: CardScope.GLOBAL,
     timeType: TimeCardType.TIME_SIGNATURE,
+    durationType: CardDurationType.CONTINUOUS,
     timeMusicData: {
       meter: '6/8',
       beatsPerMeasure: 2,
@@ -534,6 +599,7 @@ const timeSignatureCards: Card[] = [
     category: CardCategory.TIME,
     scope: CardScope.GLOBAL,
     timeType: TimeCardType.TIME_SIGNATURE,
+    durationType: CardDurationType.CONTINUOUS,
     timeMusicData: {
       meter: '5/4',
       beatsPerMeasure: 5,
@@ -551,6 +617,7 @@ const timeSignatureCards: Card[] = [
     category: CardCategory.TIME,
     scope: CardScope.GLOBAL,
     timeType: TimeCardType.TIME_SIGNATURE,
+    durationType: CardDurationType.CONTINUOUS,
     timeMusicData: {
       meter: '7/8',
       beatsPerMeasure: 7,
@@ -568,6 +635,7 @@ const timeSignatureCards: Card[] = [
     category: CardCategory.TIME,
     scope: CardScope.GLOBAL,
     timeType: TimeCardType.TIME_SIGNATURE,
+    durationType: CardDurationType.CONTINUOUS,
     timeMusicData: {
       meter: '9/8',
       beatsPerMeasure: 3,
@@ -585,6 +653,7 @@ const timeSignatureCards: Card[] = [
     category: CardCategory.TIME,
     scope: CardScope.GLOBAL,
     timeType: TimeCardType.TIME_SIGNATURE,
+    durationType: CardDurationType.CONTINUOUS,
     timeMusicData: {
       meter: '12/8',
       beatsPerMeasure: 4,
@@ -609,6 +678,7 @@ const polyrhythmCards: Card[] = [
     category: CardCategory.TIME,
     scope: CardScope.GLOBAL,
     timeType: TimeCardType.POLYRHYTHM,
+    durationType: CardDurationType.CONTINUOUS,
     timeMusicData: {
       polyrhythm: [3, 4],
       lcm: 12,
@@ -625,6 +695,7 @@ const polyrhythmCards: Card[] = [
     category: CardCategory.TIME,
     scope: CardScope.GLOBAL,
     timeType: TimeCardType.POLYRHYTHM,
+    durationType: CardDurationType.CONTINUOUS,
     timeMusicData: {
       polyrhythm: [2, 3],
       lcm: 6,
@@ -641,6 +712,7 @@ const polyrhythmCards: Card[] = [
     category: CardCategory.TIME,
     scope: CardScope.GLOBAL,
     timeType: TimeCardType.POLYRHYTHM,
+    durationType: CardDurationType.CONTINUOUS,
     timeMusicData: {
       polyrhythm: [3, 5],
       lcm: 15,
@@ -657,6 +729,7 @@ const polyrhythmCards: Card[] = [
     category: CardCategory.TIME,
     scope: CardScope.GLOBAL,
     timeType: TimeCardType.POLYRHYTHM,
+    durationType: CardDurationType.CONTINUOUS,
     timeMusicData: {
       polyrhythm: [4, 5],
       lcm: 20,
@@ -680,6 +753,7 @@ const tempoModifierCards: Card[] = [
     category: CardCategory.TIME,
     scope: CardScope.GLOBAL,
     timeType: TimeCardType.TEMPO_MODIFIER,
+    durationType: CardDurationType.CONTINUOUS,
     timeMusicData: {
       tempoModifier: 2.0,
     },
@@ -693,6 +767,7 @@ const tempoModifierCards: Card[] = [
     category: CardCategory.TIME,
     scope: CardScope.GLOBAL,
     timeType: TimeCardType.TEMPO_MODIFIER,
+    durationType: CardDurationType.CONTINUOUS,
     timeMusicData: {
       tempoModifier: 0.5,
     },
@@ -706,6 +781,7 @@ const tempoModifierCards: Card[] = [
     category: CardCategory.TIME,
     scope: CardScope.GLOBAL,
     timeType: TimeCardType.TEMPO_MODIFIER,
+    durationType: CardDurationType.CONTINUOUS,
     timeMusicData: {
       swingRatio: 0.67,
     },
@@ -719,6 +795,7 @@ const tempoModifierCards: Card[] = [
     category: CardCategory.TIME,
     scope: CardScope.GLOBAL,
     timeType: TimeCardType.TEMPO_MODIFIER,
+    durationType: CardDurationType.CONTINUOUS,
     timeMusicData: {
       tempoModifier: 0.9,
     },
@@ -739,6 +816,9 @@ const rhythmicPatternCards: Card[] = [
     category: CardCategory.TIME,
     scope: CardScope.LOCAL,
     timeType: TimeCardType.CLAVE_PATTERN,
+    durationType: CardDurationType.INSTANCE,
+    lengthBeats: 16,
+    repeatCount: 4,
     timeMusicData: {
       pattern: [1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0],
       meter: '4/4',
@@ -754,6 +834,9 @@ const rhythmicPatternCards: Card[] = [
     category: CardCategory.TIME,
     scope: CardScope.LOCAL,
     timeType: TimeCardType.CLAVE_PATTERN,
+    durationType: CardDurationType.INSTANCE,
+    lengthBeats: 16,
+    repeatCount: 4,
     timeMusicData: {
       pattern: [1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0],
       meter: '4/4',
@@ -769,6 +852,9 @@ const rhythmicPatternCards: Card[] = [
     category: CardCategory.TIME,
     scope: CardScope.LOCAL,
     timeType: TimeCardType.RHYTHMIC_PATTERN,
+    durationType: CardDurationType.INSTANCE,
+    lengthBeats: 16,
+    repeatCount: 4,
     timeMusicData: {
       noteGrouping: [3, 3, 2, 2, 2],
       beatsPerMeasure: 12,
@@ -784,6 +870,9 @@ const rhythmicPatternCards: Card[] = [
     category: CardCategory.TIME,
     scope: CardScope.LOCAL,
     timeType: TimeCardType.RHYTHMIC_PATTERN,
+    durationType: CardDurationType.INSTANCE,
+    lengthBeats: 16,
+    repeatCount: 4,
     timeMusicData: {
       pattern: [0, 1, 0, 1, 0, 1, 0, 1],
       meter: '4/4',
@@ -808,6 +897,7 @@ export const allCards: Card[] = [
   ...polyrhythmCards,
   ...tempoModifierCards,
   ...rhythmicPatternCards,
+  ...egmdDrumCards,
 ];
 
 // ============================================================================
