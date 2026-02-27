@@ -190,34 +190,100 @@ export function detectPatterns(
   progression: Chord[],
   keyRoot?: number,
 ): DetectedPattern[] {
-  if (!progression || progression.length === 0) {
-    return [];
-  }
+  const minNote = options.minNote ?? 28 // E1
+  const maxNote = options.maxNote ?? 52 // E3
+  const octaveBase = options.octaveBase ?? 36 // C2 as target octave
+  const modeName = (options as any).mode ?? 'Ionian'
 
-  // Determine base root note
-  const baseRoot =
-    typeof keyRoot === "number" ? keyRoot : progression[0]?.notes?.[0] || 60;
+  const out: { timeBeat: number; note: number }[] = []
+  let cursor = 0
 
-  // Extract semitone offsets from each chord's root note
-  const offsets = progression
-    .map((chord) => {
-      if (!chord || !Array.isArray(chord.notes) || chord.notes.length === 0) {
-        return null;
+  const prog = section.progression || []
+  if (prog.length === 0) return out
+
+  // helper: build scale notes across octave range for a given keyRoot
+  const buildScaleRange = (keyRoot: number) => {
+    const baseScale = MusicTheory.getScaleNotes(keyRoot, modeName)
+    const list: number[] = []
+    // cover several octaves around octaveBase
+    for (let o = -3; o <= 3; o++) {
+      for (const n of baseScale) {
+        list.push(n + o * 12)
       }
-      return chord.notes[0];
-    })
-    .filter((note): note is number => typeof note === "number")
-    .map((note) => (((note - baseRoot) % 12) + 12) % 12);
-
-  // Need at least 2 chords to detect a pattern
-  if (offsets.length < 2) {
-    return [];
+    }
+    // filter into desired range
+    return list.filter(n => n >= minNote && n <= maxNote).sort((a,b)=>a-b)
   }
 
-  const definitions = getPatternDefinitions();
-  const matches: DetectedPattern[] = [];
+  for (let idx = 0; idx < prog.length; idx++) {
+    const chord = prog[idx]
+    const dur = Math.max(1, Math.round(chord.duration || 1))
+    const root = (chord.notes && chord.notes[0]) || (chord.metadata && chord.metadata.root) || 60
 
-  // Check each pattern against the progression
+    // target bass root in desired octave
+    let rootBass = root
+    while (rootBass > octaveBase + 12) rootBass -= 12
+    while (rootBass < octaveBase) rootBass += 12
+    rootBass = Math.max(minNote, Math.min(maxNote, rootBass))
+
+    // determine next chord root target
+    let nextRootBass: number | null = null
+    if (idx < prog.length - 1) {
+      const next = prog[idx+1]
+      const nr = (next.notes && next.notes[0]) || (next.metadata && next.metadata.root) || null
+      if (nr !== null) {
+        let nrBass = nr
+        while (nrBass > octaveBase + 12) nrBass -= 12
+        while (nrBass < octaveBase) nrBass += 12
+        nrBass = Math.max(minNote, Math.min(maxNote, nrBass))
+        nextRootBass = nrBass
+      }
+    }
+
+    // build a scale list for this chord's key
+    const scaleList = buildScaleRange(root)
+    if (scaleList.length === 0) {
+      // fallback to simple pattern
+      for (let i = 0; i < dur; i++) {
+        const note = i % 2 === 0 ? rootBass : Math.min(maxNote, rootBass + 7)
+        out.push({ timeBeat: cursor + i, note })
+      }
+      cursor += dur
+      continue
+    }
+
+    // find nearest scale index to rootBass
+    const nearestIndex = (arr: number[], val: number) => {
+      let best = 0; let bestDiff = Infinity
+      arr.forEach((v,i)=>{ const d = Math.abs(v-val); if (d < bestDiff){ bestDiff = d; best = i } })
+      return best
+    }
+
+    const startIdx = nearestIndex(scaleList, rootBass)
+    const targetIdx = nextRootBass !== null ? nearestIndex(scaleList, nextRootBass) : null
+
+    for (let i = 0; i < dur; i++) {
+      let note: number
+      if (i === 0) {
+        note = scaleList[startIdx]
+      } else if (targetIdx !== null) {
+        const steps = dur - 1
+        const stepDir = targetIdx > startIdx ? 1 : -1
+        const step = Math.round((i) * Math.abs(targetIdx - startIdx) / Math.max(1, steps))
+        const idxPick = Math.max(0, Math.min(scaleList.length - 1, startIdx + stepDir * step))
+        note = scaleList[idxPick]
+      } else {
+        // no target: alternate root and nearby passing tones
+        if (i % 2 === 0) note = scaleList[startIdx]
+        else note = Math.min(maxNote, scaleList[startIdx] + 7)
+      }
+      out.push({ timeBeat: cursor + i, note })
+    }
+
+    cursor += dur
+  }
+
+  return out
   definitions.forEach((pattern) => {
     if (!Array.isArray(pattern.semitones) || pattern.semitones.length === 0) {
       return;
@@ -697,4 +763,52 @@ export function getSongFormTemplate(
 ): SongFormTemplate | undefined {
   const templates = getSongFormTemplates();
   return templates.find((t) => t.id === templateId);
+}
+
+/**
+ * Generate a simple bass line for a section.
+ * Strategy (prototype): for each chord, emit one bass note per beat.
+ * - Beat 0 of chord = chord root (constrained to bass range)
+ * - Beat 1 = perfect fifth above root (if available)
+ * - Subsequent beats: simple passing tones (2 or 4 semitones above root)
+ * Returns array of { timeBeat, note }
+ */
+export function generateBassLine(
+  section: Section,
+  options: { minNote?: number; maxNote?: number; octaveBase?: number } = {},
+): { timeBeat: number; note: number }[] {
+  const minNote = options.minNote ?? 28 // E1
+  const maxNote = options.maxNote ?? 52 // E3
+  const octaveBase = options.octaveBase ?? 36 // C2 as target octave
+
+  const out: { timeBeat: number; note: number }[] = []
+  let cursor = 0
+
+  for (const chord of section.progression || []) {
+    const dur = Math.max(1, Math.round(chord.duration || 1))
+    const root = (chord.notes && chord.notes[0]) || (chord.metadata && chord.metadata.root) || 60
+
+    // bring root into bass octave
+    let rootBass = root
+    while (rootBass > octaveBase + 12) rootBass -= 12
+    while (rootBass < octaveBase) rootBass += 12
+    rootBass = Math.max(minNote, Math.min(maxNote, rootBass))
+
+    for (let i = 0; i < dur; i++) {
+      let note: number
+      if (i === 0) {
+        note = rootBass
+      } else if (i === 1) {
+        note = Math.min(maxNote, rootBass + 7)
+      } else {
+        const pass = i % 2 === 0 ? 2 : 4
+        note = Math.min(maxNote, rootBass + pass)
+      }
+      out.push({ timeBeat: cursor + i, note })
+    }
+
+    cursor += dur
+  }
+
+  return out
 }

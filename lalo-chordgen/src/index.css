@@ -62,7 +62,7 @@
   --foreground: #fff9e5;
   --card: #73604a;
   --card-foreground: #fff9e5;
-  --popover: #000000;
+  --popover: #e2c886;
   --popover-foreground: #fff9e5;
   --primary: #17d0d3;
   --primary-foreground: #000000;
@@ -177,6 +177,17 @@
   body {
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
 

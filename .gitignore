@@ -47,3 +47,6 @@ yarn-error.log*
 
 # ── Local One-Off Artifacts ───────────────────────────────────────────────────
 files (6).zip
+
+# Large reference zip files
+docs/Reference/*.zip

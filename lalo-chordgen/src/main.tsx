@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
+import { ThemeProvider } from './components/ui/theme-provider'
 import App from './App'
 
 // Initialize theme immediately to prevent flash
@@ -19,6 +20,8 @@ initTheme()
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 )
